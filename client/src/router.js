@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import SignUp from './components/SignUp.vue'
 
 const routes = [
-    { path: '/signup', component: SignUp }
+    { path: '/sign-up', component: SignUp }
 ]
 
 const router = createRouter({

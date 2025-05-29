@@ -5,7 +5,7 @@ import SignUp from './components/SignUp.vue'
 <template>
   <div>
     <nav>
-      <router-link to="/signup">login</router-link>
+      <router-link to="/sign-up">login</router-link>
     </nav>
 
     <router-view />
