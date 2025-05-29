@@ -1,2 +1,4 @@
 node_modules
 .txt
+.env
+db-t.js
