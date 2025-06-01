@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 
-import database from './db.js'
+import database from '../config/db.js'
 
 // all routes
 import routerHome from './routes/home.js'
@@ -18,16 +18,6 @@ app.use(express.json())
 
 dotenv.config()
 
-async function initDB() {
-    try {
-        await database.query('SELECT NOW()')
-        console.log('database connected successfully!')
-    } catch (err) {
-        console.error('failed to connect to the database: ', err)
-        process.exit(1)
-    }
-}
-
 // Routes
 app.get('/', routerHome)
 
@@ -40,4 +30,4 @@ app.listen(3000, () => {
     console.log(`server running at 3000`)
 })
 
-initDB()
+database.initDB()
