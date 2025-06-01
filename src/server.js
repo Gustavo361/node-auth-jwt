@@ -6,7 +6,7 @@ import database from './db.js'
 
 // all routes
 import routerHome from './routes/home.js'
-import routerLogin from './routes/login.js'
+import routerLogin from './routes/log-in.js'
 import routerSignUp from './routes/sign-up.js'
 
 const app = express()
@@ -31,8 +31,8 @@ async function initDB() {
 // Routes
 app.get('/', routerHome)
 
-app.post('/post', routerLogin)
 app.post('/sign-up', routerSignUp)
+app.post('/log-in', routerLogin)
 
 
 // Listening PORT

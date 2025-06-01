@@ -1,8 +1,8 @@
 import express, { Router } from 'express'
 const router = express.Router()
 
-router.post('/login', (req, res) => {
-    res.send('login page here')
+router.post('/log-in', (req, res) => {
+    console.log(req.body)
 })
 
 export default router
