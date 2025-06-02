@@ -26,11 +26,15 @@ export default {
         }
     },
     methods: {
-        handleSubmit() {
-            const response = axios.post('http://localhost:3000/log-in', this.formData, {
-                'headers': 'Content-Type: aplication/json'
-            })
-            console.log(response.data)
+        async handleSubmit() {
+            try {
+                const response = await axios.post('http://localhost:3000/log-in', this.formData, {
+                    headers: { 'Content-Type': 'application/json'}
+                })
+                console.log(response.data.message)
+            } catch (err) {
+                console.error(err.response?.data?.message || err.message)
+            }
         }
     }
 }

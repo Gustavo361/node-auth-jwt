@@ -4,7 +4,6 @@ import { createUser } from '../model/user-model.js'
 const router = express.Router()
 
 router.post('/sign-up', async (req, res) => {
-    console.log(req.body)
     try {
         const { nickname, email, password } = req.body
         let user = await createUser(nickname, email, password)
