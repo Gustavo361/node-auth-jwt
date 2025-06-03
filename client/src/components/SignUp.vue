@@ -31,8 +31,15 @@ export default {
     },
     methods: {
         async handleSubmit() {
-            const response = await axios.post('http://localhost:3000/sign-up', this.formData)
-            console.log(response.data)
+            try {
+                const response = await axios.post('http://localhost:3000/sign-up', this.formData)
+                let redirectPath = response.data.redirect
+                if (redirectPath) {
+                    this.$router.push(redirectPath)
+                }
+            } catch (err) {
+                console.error(err.response?.data?.message || err.message)
+            }
         }
     }
 }

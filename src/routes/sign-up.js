@@ -8,7 +8,7 @@ router.post('/sign-up', async (req, res) => {
         const { nickname, email, password } = req.body
         let user = await createUser(nickname, email, password)
         console.log('user created successfully!')
-        res.status(200).json(user)
+        res.status(200).json({redirect: '/home'})
     } catch (err) {
         console.error(err)
         console.log('user creating failed')

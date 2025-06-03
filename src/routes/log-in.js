@@ -10,7 +10,9 @@ router.post('/log-in', async (req, res) => {
 
         if (user) {
             console.log('user logged in succesfully')
-            res.status(200).json({message: 'user logged in succesfully'})
+            res.status(200).json({
+                message: 'user logged in succesfully',
+                redirect: '/home'})
         } else {
             console.log('inválid credentials')
             res.status(401).json({message: 'inválid credentials'})

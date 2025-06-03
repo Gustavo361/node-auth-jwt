@@ -31,7 +31,10 @@ export default {
                 const response = await axios.post('http://localhost:3000/log-in', this.formData, {
                     headers: { 'Content-Type': 'application/json'}
                 })
-                console.log(response.data.message)
+                let redirectPath = response.data.redirect
+                if (redirectPath) {
+                    this.$router.push(redirectPath)
+                }
             } catch (err) {
                 console.error(err.response?.data?.message || err.message)
             }
