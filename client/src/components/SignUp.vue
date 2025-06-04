@@ -34,6 +34,14 @@ export default {
             try {
                 const response = await axios.post('http://localhost:3000/sign-up', this.formData)
                 let redirectPath = response.data.redirect
+
+                let token = response.data.token
+
+                if (token) {
+                    localStorage.setItem('token', token)
+                    console.log('token: ', token)
+                }
+
                 if (redirectPath) {
                     this.$router.push(redirectPath)
                 }

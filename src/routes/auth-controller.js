@@ -17,6 +17,20 @@ function authorizationLogin(user) {
     }
 }
 
+function authorzationSignUp(user) {
+    try {
+        const token = jwt.sign(
+            {id: user.id, nickname: user.nickname},
+            process.env.JWT_SECRET,
+            {expiresIn: process.env.JWT_EXPIRES_IN || '1h'}
+        )
+        return token
+    } catch (err) {
+        console.error('error: ', err)
+        return null
+    }
+}
+
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]
@@ -30,4 +44,4 @@ function authenticateToken(req, res, next) {
     })
 }
 
-export {authorizationLogin, authenticateToken}
+export {authorizationLogin, authorzationSignUp, authenticateToken}
