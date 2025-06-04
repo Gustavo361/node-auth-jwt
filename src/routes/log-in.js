@@ -1,5 +1,6 @@
 import express, { Router } from 'express'
 import { loginUser } from '../model/user-model.js'
+import {authorizationLogin} from '../routes/auth-controller.js'
 
 const router = express.Router()
 
@@ -9,12 +10,15 @@ router.post('/log-in', async (req, res) => {
         let user = await loginUser(nickname, password)
 
         if (user) {
+            const token = authorizationLogin(user)
             console.log('user logged in succesfully')
             res.status(200).json({
                 message: 'user logged in succesfully',
-                redirect: '/home'})
+                redirect: '/home',
+                token
+            })
         } else {
-            console.log('inválid credentials')
+            console.error('inválid credentials')
             res.status(401).json({message: 'inválid credentials'})
         }
 

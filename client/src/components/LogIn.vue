@@ -29,9 +29,19 @@ export default {
         async handleSubmit() {
             try {
                 const response = await axios.post('http://localhost:3000/log-in', this.formData, {
-                    headers: { 'Content-Type': 'application/json'}
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Barer ${localStorage.getItem('token')}`
+                    }
                 })
-                let redirectPath = response.data.redirect
+
+                const redirectPath = response.data.redirect
+                const token = response.data.token
+
+                if (token) {
+                    localStorage.setItem('token', token)
+                }
+
                 if (redirectPath) {
                     this.$router.push(redirectPath)
                 }
