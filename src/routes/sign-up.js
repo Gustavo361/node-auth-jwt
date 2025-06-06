@@ -14,7 +14,7 @@ router.post('/sign-up', async (req, res) => {
             let token = authorzationSignUp(user)
             console.log('user created successfully!')
             res.status(200).json({
-                redirect: '/home',
+                redirect: '/',
                 token: token
             })
         }

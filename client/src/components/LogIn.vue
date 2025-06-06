@@ -31,7 +31,6 @@ export default {
                 const response = await axios.post('http://localhost:3000/log-in', this.formData, {
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Barer ${localStorage.getItem('token')}`
                     }
                 })
 

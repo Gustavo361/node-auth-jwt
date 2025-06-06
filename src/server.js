@@ -8,6 +8,7 @@ import database from '../config/db.js'
 import routerHome from './routes/home.js'
 import routerLogin from './routes/log-in.js'
 import routerSignUp from './routes/sign-up.js'
+import routerLogOut from './routes/log-out.js'
 import {authenticateToken} from './routes/auth-controller.js'
 
 const app = express()
@@ -23,7 +24,9 @@ dotenv.config()
 app.get('/', routerHome)
 
 app.post('/sign-up', routerSignUp)
-app.post('/log-in', authenticateToken, routerLogin)
+// app.post('/log-in', authenticateToken, routerLogin)
+app.post('/log-in', routerLogin)
+app.post('/log-out', routerLogOut)
 
 
 // Listening PORT

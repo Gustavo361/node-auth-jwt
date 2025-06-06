@@ -39,7 +39,6 @@ export default {
 
                 if (token) {
                     localStorage.setItem('token', token)
-                    console.log('token: ', token)
                 }
 
                 if (redirectPath) {
