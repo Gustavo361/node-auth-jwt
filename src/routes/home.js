@@ -1,7 +1,10 @@
 import express from 'express'
+
+import {authenticateToken} from './auth-controller.js'
+
 const router = express.Router()
 
-router.get('/', (req, res) => {
+router.get('/', authenticateToken, (req, res) => {
     res.send('backend here router')
 })
 

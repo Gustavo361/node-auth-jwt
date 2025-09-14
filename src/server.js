@@ -9,7 +9,7 @@ import routerHome from './routes/home.js'
 import routerLogin from './routes/log-in.js'
 import routerSignUp from './routes/sign-up.js'
 import routerLogOut from './routes/log-out.js'
-import {authenticateToken} from './routes/auth-controller.js'
+import routerPost from './routes/post.js'
 
 const app = express()
 
@@ -27,6 +27,7 @@ app.post('/sign-up', routerSignUp)
 // app.post('/log-in', authenticateToken, routerLogin)
 app.post('/log-in', routerLogin)
 app.post('/log-out', routerLogOut)
+app.post('/post', routerPost)
 
 
 // Listening PORT

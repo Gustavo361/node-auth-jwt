@@ -2,13 +2,21 @@
     <div>
         <h1>Welcome</h1>
         <button @click="handleLogOut">log out</button>
+        <PostForm />
+        <AllPosts />
+    </div>
+    <div>
     </div>
 </template>
 
 <script>
 import axios from 'axios'
+import PostForm from './PostForm.vue'
+import AllPosts from './AllPosts.vue'
 
 export default {
+    components: {PostForm, AllPosts},
+
     async mounted() {
         const token = localStorage.getItem('token')
 

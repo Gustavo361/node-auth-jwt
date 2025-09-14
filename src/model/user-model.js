@@ -1,3 +1,4 @@
+import PostForm from '../../client/src/components/PostForm.vue'
 import database from '../../config/db.js'
 
 export async function createUser(nickname, email, password) {
@@ -16,6 +17,8 @@ export async function loginUser(nickname, password) {
         return null
     }
 }
+
+
 
 // fazer a query pra inserir?
 // mostrar o resultado
